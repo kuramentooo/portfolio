@@ -28,10 +28,11 @@ export default function TechLogo({ name, logo, size = 40 }: TechLogoProps) {
   return (
     <div className="relative" style={{ width: size, height: size }}>
       <Image
-        src={`/logos/${logo}`}
+        src={`/portfolio/logos/${logo}`}
         alt={`${name} logo`}
-        fill
-        className="object-contain p-1"
+        width={size}
+        height={size}
+        className="object-contain"
         onError={() => setError(true)}
         priority
         unoptimized

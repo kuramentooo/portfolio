@@ -20,7 +20,7 @@ export default function Hero() {
         <div className="mb-8">
           <div className="w-40 h-40 mx-auto mb-8 rounded-full overflow-hidden ring-4 ring-blue-500 shadow-xl transform hover:scale-105 transition-all duration-300">
             <Image
-              src="/me_avatar.png"  // Ajout du slash au début
+              src="/portfolio/me_avatar.png"  // Chemin complet avec le préfixe portfolio
               alt="Clément Delaunoy"
               width={160}
               height={160}

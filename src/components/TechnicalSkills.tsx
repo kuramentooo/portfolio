@@ -17,7 +17,7 @@ export default function TechnicalSkills() {
       <div className="w-16 h-16 relative flex items-center justify-center bg-white rounded-lg p-2">
         {!imageError[item.name] ? (
           <Image
-            src={`/logos/${item.logo}`} // Chemin mis à jour
+            src={`/public/logos/${item.logo}`} // Chemin mis à jour
             alt={item.name}
             width={40}
             height={40}

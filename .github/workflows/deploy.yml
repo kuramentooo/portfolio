@@ -65,11 +65,20 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          
       - name: Download build artifacts
         uses: actions/download-artifact@v4
         with:
           name: build-output
           path: out
+          
+      - name: Setup Git
+        run: |
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
       - name: Deploy to GitHub Pages
         id: deployment
@@ -79,6 +88,8 @@ jobs:
           branch: gh-pages
           clean: true
           commit-message: "Deploy: ${{ github.sha }}"
+          git-config-name: GitHub Actions Bot
+          git-config-email: github-actions[bot]@users.noreply.github.com
 
   notify:
     needs: deploy

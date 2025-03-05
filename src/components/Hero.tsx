@@ -4,6 +4,12 @@ import Image from 'next/image'
 import { profile } from '@/data/profile'
 
 export default function Hero() {
+  const socialLinks = [
+    { name: 'GitHub', url: profile.links.github },
+    { name: 'LinkedIn', url: profile.links.linkedin },
+    { name: 'GitLab', url: profile.links.gitlab }
+  ]
+
   return (
     <section className="min-h-screen relative flex items-center justify-center overflow-hidden">
       {/* Fond animé */}
@@ -14,7 +20,7 @@ export default function Hero() {
         <div className="mb-8">
           <div className="w-40 h-40 mx-auto mb-8 rounded-full overflow-hidden ring-4 ring-blue-500 shadow-xl transform hover:scale-105 transition-all duration-300">
             <Image
-              src="/portfolio/me_avatar.png"  // Correction du chemin avec le préfixe /portfolio/
+              src="me_avatar.png"  // Chemin simplifié
               alt="Clément Delaunoy"
               width={160}
               height={160}
@@ -34,15 +40,15 @@ export default function Hero() {
             je suis actuellement en alternance et en formation pour devenir DevOps.
           </p>
           <div className="flex justify-center gap-6">
-            {Object.entries(profile.links).slice(0, 3).map(([platform, url]) => (
+            {socialLinks.map(({ name, url }) => (
               <a
-                key={platform}
+                key={name}
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-6 py-3 bg-white/90 dark:bg-gray-800/90 rounded-lg hover:scale-105 hover:shadow-xl transition-all duration-300 backdrop-blur-sm"
               >
-                {platform}
+                {name}
               </a>
             ))}
           </div>

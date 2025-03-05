@@ -214,22 +214,22 @@ export const profile = {
   ],
   technicalSkills: {
     languages: [
-      { name: "Python", logo: "pyhton-logo.svg", level: "Avancé" },
-      { name: "JavaScript", logo: "javascript.svg", level: "Avancé" },
-      { name: "HTML/CSS", logo: "html-css-logo.svg", level: "Avancé" }
+      { name: "Python", logo: "python.png", level: "Avancé" },
+      { name: "JavaScript", logo: "javascript.png", level: "Avancé" },
+      { name: "HTML/CSS", logo: "html-css.png", level: "Avancé" }
     ],
     devops: [
-      { name: "Terraform", logo: "terraform-logo.svg", level: "Avancé" },
-      { name: "Ansible", logo: "ansible-logo.svg", level: "Intermédiaire" },
-      { name: "Puppet", logo: "puppet-logo.svg", level: "Intermédiaire" },
-      { name: "Jenkins", logo: "jenkins-logo.svg", level: "Avancé" },
-      { name: "Docker", logo: "docker-logo.svg", level: "Avancé" },
-      { name: "Git", logo: "git-logo.svg", level: "Avancé" },
-      { name: "Rundeck", logo: "rundeck-logo.svg", level: "Intermédiaire" }
+      { name: "Terraform", logo: "terraform.png", level: "Avancé" },
+      { name: "Ansible", logo: "ansible.png", level: "Intermédiaire" },
+      { name: "Puppet", logo: "puppet.png", level: "Intermédiaire" },
+      { name: "Jenkins", logo: "jenkins.png", level: "Avancé" },
+      { name: "Docker", logo: "docker.png", level: "Avancé" },
+      { name: "Git", logo: "git.png", level: "Avancé" },
+      { name: "Rundeck", logo: "rundeck.png", level: "Intermédiaire" }
     ],
     cloud: [
-      { name: "AWS", logo: "aws-logo.svg", level: "Intermédiaire" },
-      { name: "Azure", logo: "azure-logo.svg", level: "Intermédiaire" }
+      { name: "AWS", logo: "aws.png", level: "Intermédiaire" },
+      { name: "Azure", logo: "azure.png", level: "Intermédiaire" }
     ]
   },
   languages: [

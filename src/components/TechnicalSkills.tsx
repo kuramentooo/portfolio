@@ -1,39 +1,13 @@
 'use client'
 
-import Image from 'next/image'
 import { profile } from '@/data/profile'
-import { useState } from 'react'
+import TechLogo from './TechLogo'
 
 export default function TechnicalSkills() {
-  const [imageError, setImageError] = useState<{[key: string]: boolean}>({})
-
-  const handleImageError = (name: string) => {
-    setImageError(prev => ({...prev, [name]: true}))
-    console.error(`Failed to load image for ${name}`)
-  }
-
-  const getImagePath = (logo: string) => {
-    // Retirer le préfixe /portfolio car il est déjà géré par next.config.js
-    return `/logos/${logo}`;
-  }
-
   const renderTechItem = (item: { name: string; logo: string; level: string }) => (
     <div className="flex items-center space-x-4">
       <div className="w-16 h-16 relative flex items-center justify-center bg-white rounded-lg p-2">
-        {!imageError[item.name] ? (
-          <Image
-            src={getImagePath(item.logo)}
-            alt={item.name}
-            width={40}
-            height={40}
-            className="object-contain"
-            onError={() => handleImageError(item.name)}
-            priority
-            unoptimized
-          />
-        ) : (
-          <span className="text-2xl font-bold text-gray-400">{item.name[0]}</span>
-        )}
+        <TechLogo name={item.name} logo={item.logo} size={48} />
       </div>
       <div>
         <h4 className="font-medium">{item.name}</h4>

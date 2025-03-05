@@ -23,22 +23,105 @@ export const profile = {
       company: "Paritel Opérateur",
       period: "01/09/2022 - 31/08/2024",
       role: "Alternance Bachelor Systèmes et Réseaux",
-      details: "Administration système et réseau, support technique N2/N3, gestion de projets d'infrastructure."
+      details: `
+        Téléphonie et VoIP :
+        • Mise en place des systèmes de téléphonie fixe et mobile
+        • Installation de solutions VoIP et cloud
+        • Configuration des équipements réseau (routeurs, switchs, téléphones IP)
+        • Maintenance et dépannage des infrastructures télécom
+        • Support technique et assistance aux clients
+
+        Support et Assistance :
+        • Diagnostic et résolution des pannes à distance ou sur site
+        • Assistance aux clients pour la prise en main des équipements
+        • Gestion des incidents et suivi des tickets d'intervention
+
+        Administration Réseau :
+        • Surveillance des performances des infrastructures
+        • Intervention en cas d'anomalies techniques
+        • Optimisation des connexions et de la qualité de service
+
+        Gestion Client et Documentation :
+        • Conseils techniques et accompagnement des clients professionnels
+        • Rédaction de rapports d'intervention et documentation technique
+        • Application des mises à jour et correctifs de sécurité
+        • Veille technologique sur les évolutions du secteur télécom
+      `,
+      technologies: [
+        "VoIP",
+        "Cloud",
+        "Réseaux",
+        "Cisco",
+        "IPBX",
+        "Téléphonie IP",
+        "Support N2/N3",
+        "Ticketing"
+      ]
     },
     {
       company: "Acim Jouinin",
       period: "Juillet 2022",
-      role: "Stage BTS SIO"
+      role: "Stage BTS SIO",
+      details: `
+        Administration Système :
+        • Création et gestion de machines virtuelles
+        • Configuration des outils et services
+        • Maintenance des systèmes informatiques
+      `,
+      technologies: ["VMware", "Windows Server", "Active Directory"]
     },
     {
       company: "Chronodrive",
       period: "Novembre 2021 - Août 2022",
-      role: "Job étudiant"
+      role: "Job étudiant",
+      details: `
+        Préparation des Commandes :
+        • Réception et traitement des commandes via le système interne
+        • Récupération des produits selon les listes de commande
+        • Vérification de la conformité et qualité des produits
+
+        Service Client :
+        • Accueil des clients sur le parking
+        • Livraison des commandes aux véhicules
+        • Assistance et support client
+
+        Gestion des Stocks :
+        • Réassort des rayons
+        • Contrôle des livraisons
+        • Inventaire et suivi des produits
+
+        Opérations de Caisse :
+        • Encaissement des commandes
+        • Gestion des bons de commande
+        • Traitement des remboursements
+
+        Sécurité et Hygiène :
+        • Maintien de la propreté des zones de travail
+        • Application des procédures de sécurité
+      `,
+      technologies: ["Système de commande", "Gestion de stock", "Service client"]
     },
     {
       company: "Bricomarché",
       period: "Été 2021",
-      role: "Développement du sens de l'organisation et maîtrise de la gestion des tâches quotidiennes"
+      role: "Conseiller de vente",
+      details: `
+        Service Client :
+        • Accueil et orientation des clients en magasin
+        • Conseil sur les produits (bricolage, jardinage, outillage)
+        • Réponse aux demandes spécifiques
+
+        Gestion des Stocks :
+        • Réception et vérification des livraisons
+        • Réapprovisionnement des rayons
+        • Inventaire et gestion des ruptures
+
+        Maintenance du Magasin :
+        • Entretien et organisation des rayons
+        • Respect des normes de sécurité
+        • Installation des promotions
+      `,
+      technologies: ["Merchandising", "Gestion commerciale", "Service client"]
     }
   ],
   education: [

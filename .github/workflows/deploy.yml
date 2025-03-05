@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: CI/CD Pipeline
 
 on:
   push:
@@ -11,26 +11,75 @@ permissions:
   id-token: write
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
-    
     steps:
-    - uses: actions/checkout@v3
-    
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18'
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm install
         
-    - name: Install dependencies
-      run: npm install
+      - name: Build project
+        run: npm run build
         
-    - name: Build
-      run: npm run build
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-output
+          path: out
+          retention-days: 1
+
+  lint:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm install
         
-    - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@v4
-      with:
-        folder: out
-        branch: gh-pages
-        clean: true
+      - name: Run linting
+        run: npm run lint
+
+  deploy:
+    needs: [build, lint]
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: build-output
+          path: out
+          
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: out
+          branch: gh-pages
+          clean: true
+          commit-message: "Deploy: ${{ github.sha }}"
+
+  notify:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deployment Status
+        run: |
+          echo "🚀 Deployment completed successfully!"
+          echo "Visit: https://kuramentooo.github.io/portfolio"

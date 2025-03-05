@@ -68,11 +68,4 @@
   animation: float 3s ease-in-out infinite;
 }
 
-/* Script de détection du thème initial */
-@script {
-  if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    document.documentElement.classList.add('dark')
-  } else {
-    document.documentElement.classList.remove('dark')
-  }
-}
+/* Suppression du bloc @script invalide */

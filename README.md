@@ -4,7 +4,7 @@ Portfolio personnel présentant mon parcours professionnel, mes compétences et 
 
 ## Aperçu
 
-![Aperçu du Portfolio](./public/Capture%20d'écran%202025-03-05%20165639.png)
+![Aperçu du Portfolio](./public/Capture%20d’écran%202025-03-05%20165639.png)
 
 ## Technologies Utilisées
 

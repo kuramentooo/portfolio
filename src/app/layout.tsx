@@ -1,6 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import ClientLayout from '@/components/ClientLayout'
+import ThemeProvider from '@/components/ThemeProvider'
 
 export const metadata: Metadata = {
   title: 'Clément Delaunoy - Portfolio',
@@ -15,7 +16,9 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body>
-        <ClientLayout>{children}</ClientLayout>
+        <ThemeProvider>
+          <ClientLayout>{children}</ClientLayout>
+        </ThemeProvider>
       </body>
     </html>
   )

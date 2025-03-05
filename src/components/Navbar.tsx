@@ -4,6 +4,10 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
 export default function Navbar() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -16,7 +20,10 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <button onClick={() => scrollToSection('hero')} className="text-xl font-bold">
+            <button 
+              onClick={scrollToTop}
+              className="text-xl font-bold hover:text-blue-600 transition-colors"
+            >
               Clément Delaunoy
             </button>
           </div>

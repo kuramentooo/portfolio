@@ -214,8 +214,8 @@ export const profile = {
   ],
   technicalSkills: {
     languages: [
-      { name: "Python", logo: "python-logo.svg", level: "Avancé" },
-      { name: "JavaScript", logo: "javascript-logo.svg", level: "Avancé" },
+      { name: "Python", logo: "pyhton-logo.svg", level: "Avancé" },
+      { name: "JavaScript", logo: "javascript.svg", level: "Avancé" },
       { name: "HTML/CSS", logo: "html-css-logo.svg", level: "Avancé" }
     ],
     devops: [

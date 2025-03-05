@@ -12,21 +12,27 @@ export default function TechnicalSkills() {
     console.error(`Failed to load image for ${name}`)
   }
 
+  const getImagePath = (logo: string) => {
+    // Retirer le préfixe /portfolio car il est déjà géré par next.config.js
+    return `/logos/${logo}`;
+  }
+
   const renderTechItem = (item: { name: string; logo: string; level: string }) => (
     <div className="flex items-center space-x-4">
       <div className="w-16 h-16 relative flex items-center justify-center bg-white rounded-lg p-2">
         {!imageError[item.name] ? (
           <Image
-            src={`/public/logos/${item.logo}`} // Chemin mis à jour
+            src={getImagePath(item.logo)}
             alt={item.name}
             width={40}
             height={40}
             className="object-contain"
             onError={() => handleImageError(item.name)}
             priority
+            unoptimized
           />
         ) : (
-          <span className="text-2xl">{item.name[0]}</span>
+          <span className="text-2xl font-bold text-gray-400">{item.name[0]}</span>
         )}
       </div>
       <div>

@@ -2,31 +2,19 @@ import { profile } from '@/data/profile'
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-20">
-      <div className="max-w-4xl mx-auto">
+    <section id="contact" className="py-20 scroll-mt-16">
+      <div className="max-w-2xl mx-auto px-4 text-center">
         <h2 className="text-3xl font-bold mb-8">Contact</h2>
-        <div className="text-center">
-          <p className="mb-4">
-            <a 
-              href={`mailto:${profile.email}`}
-              className="text-blue-600 dark:text-blue-400 hover:underline"
-            >
-              {profile.email}
-            </a>
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-8">
+          <p className="text-lg mb-6">
+            N&apos;hésitez pas à me contacter pour toute opportunité ou question.
           </p>
-          <div className="flex justify-center space-x-6">
-            {Object.entries(profile.links).map(([platform, url]) => (
-              <a
-                key={platform}
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100"
-              >
-                {platform}
-              </a>
-            ))}
-          </div>
+          <a 
+            href={`mailto:${profile.email}`}
+            className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+          >
+            {profile.email}
+          </a>
         </div>
       </div>
     </section>

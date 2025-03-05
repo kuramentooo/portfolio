@@ -1,19 +1,32 @@
 import Link from 'next/link'
 
 export default function Navbar() {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <nav className="sticky top-0 z-10 bg-white dark:bg-gray-800 shadow">
+    <nav className="sticky top-0 z-10 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <Link href="/" className="text-xl font-bold">
+            <button onClick={() => scrollToSection('hero')} className="text-xl font-bold">
               Clément Delaunoy
-            </Link>
+            </button>
           </div>
-          <div className="flex items-center space-x-4">
-            <Link href="#about">À propos</Link>
-            <Link href="#projects">Projets</Link>
-            <Link href="#contact">Contact</Link>
+          <div className="flex items-center space-x-8">
+            <button onClick={() => scrollToSection('about')} className="hover:text-blue-600">
+              À propos
+            </button>
+            <button onClick={() => scrollToSection('projects')} className="hover:text-blue-600">
+              Projets
+            </button>
+            <button onClick={() => scrollToSection('contact')} className="hover:text-blue-600">
+              Contact
+            </button>
           </div>
         </div>
       </div>

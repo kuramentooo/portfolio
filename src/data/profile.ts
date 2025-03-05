@@ -6,12 +6,14 @@ export const profile = {
     {
       company: "Luminess",
       period: "01/09/2024 - 31/09/2026",
-      role: "Alternance Master DevOps"
+      role: "Alternance Master DevOps",
+      details: "En cours - Formation aux pratiques DevOps, automatisation et gestion d'infrastructure cloud."
     },
     {
       company: "Paritel Opérateur",
       period: "01/09/2022 - 31/08/2024",
-      role: "Alternance Bachelor Systèmes et Réseaux"
+      role: "Alternance Bachelor Systèmes et Réseaux",
+      details: "Administration système et réseau, support technique N2/N3, gestion de projets d'infrastructure."
     },
     {
       company: "Acim Jouinin",
@@ -33,17 +35,20 @@ export const profile = {
     {
       degree: "Master DevOps",
       period: "2024-2026",
-      school: "En cours de recherche"
+      school: "Sup de Vinci",
+      details: "Formation en alternance aux pratiques DevOps modernes"
     },
     {
       degree: "Bachelor Systèmes et Réseaux",
       period: "2023-2024",
-      school: "École Supérieure du Digital"
+      school: "Sup de Vinci",
+      details: "Spécialisation en administration système et réseau"
     },
     {
-      degree: "BTS Services aux Organisations, Systèmes et Réseaux",
+      degree: "BTS SIO SISR",
       period: "2021-2023",
-      school: "CFAI de l'Eure"
+      school: "AFTEC",
+      details: "Formation en alternance aux services informatiques aux organisations"
     },
     {
       degree: "BAC Général Scientifique",

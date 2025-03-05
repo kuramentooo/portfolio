@@ -14,11 +14,19 @@ const ThemeContext = createContext<ThemeContextType>({
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState('light')
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') || 'light'
-    setTheme(savedTheme)
-    document.documentElement.classList.toggle('dark', savedTheme === 'dark')
+    setMounted(true)
+    // Check initial theme preference
+    const savedTheme = localStorage.getItem('theme')
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    
+    const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light')
+    setTheme(initialTheme)
+    if (initialTheme === 'dark') {
+      document.documentElement.classList.add('dark')
+    }
   }, [])
 
   const toggleTheme = () => {
@@ -27,6 +35,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     localStorage.setItem('theme', newTheme)
     document.documentElement.classList.toggle('dark')
   }
+
+  // Prevent hydration mismatch
+  if (!mounted) return null
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>

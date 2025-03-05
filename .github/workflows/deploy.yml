@@ -32,6 +32,9 @@ jobs:
       - name: Build project
         run: npm run build
         
+      - name: Create .nojekyll
+        run: touch out/.nojekyll
+        
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -81,15 +84,16 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          folder: out
-          branch: gh-pages
-          clean: true
-          commit-message: "Deploy: ${{ github.sha }}"
-          git-config-name: GitHub Actions Bot
-          git-config-email: github-actions[bot]@users.noreply.github.com
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
+          publish_branch: gh-pages
+          cname: kuramentooo.github.io
+          force_orphan: true
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_message: 'Deploy: ${{ github.sha }}'
 
   notify:
     needs: deploy

@@ -135,7 +135,7 @@ export default function About() {
 
         {/* Compétences et Langues */}
         <div className="grid md:grid-cols-2 gap-12 mb-12">
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg"></div>
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
             <h3 className="text-2xl font-semibold mb-6 text-center">Compétences</h3>
             <div className="flex flex-wrap gap-2">
               {profile.skills.map((skill, index) => (
@@ -165,7 +165,7 @@ export default function About() {
         </div>
 
         {/* Centres d'intérêt */}
-        <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg"></div>
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
           <h3 className="text-2xl font-semibold mb-6 text-center">Centres d&apos;intérêt</h3>
           <div className="flex flex-wrap justify-center gap-4">
             {profile.interests.map((interest, index) => (

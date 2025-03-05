@@ -11,17 +11,45 @@ export const profile = {
     {
       company: "Paritel Opérateur",
       period: "01/09/2022 - 31/08/2024",
-      role: "Alternance Bachelor"
+      role: "Alternance Bachelor Systèmes et Réseaux"
     },
-    // ...autres expériences
+    {
+      company: "Acim Jouinin",
+      period: "Juillet 2022",
+      role: "Stage BTS SIO"
+    },
+    {
+      company: "Chronodrive",
+      period: "Novembre 2021 - Août 2022",
+      role: "Job étudiant"
+    },
+    {
+      company: "Bricomarché",
+      period: "Été 2021",
+      role: "Développement du sens de l'organisation et maîtrise de la gestion des tâches quotidiennes"
+    }
   ],
   education: [
     {
       degree: "Master DevOps",
       period: "2024-2026",
-      school: "École à définir"
+      school: "En cours de recherche"
     },
-    // ...autres formations
+    {
+      degree: "Bachelor Systèmes et Réseaux",
+      period: "2023-2024",
+      school: "École Supérieure du Digital"
+    },
+    {
+      degree: "BTS Services aux Organisations, Systèmes et Réseaux",
+      period: "2021-2023",
+      school: "CFAI de l'Eure"
+    },
+    {
+      degree: "BAC Général Scientifique",
+      period: "2018-2021",
+      school: "Lycée Porte de Normandie, Edouard de Chambray - Damville"
+    }
   ],
   skills: [
     "Esprit d'équipe",
@@ -32,8 +60,8 @@ export const profile = {
     "Ponctuel"
   ],
   languages: [
-    { name: "Anglais", level: "B1" },
-    { name: "Espagnol", level: "B1" }
+    { name: "Anglais", level: "B1 (Intermédiaire)" },
+    { name: "Espagnol", level: "B1 (Intermédiaire)" }
   ],
   interests: [
     "Auto-entrepreneur",
@@ -45,10 +73,31 @@ export const profile = {
   ],
   links: {
     github: "https://github.com/kuramentooo",
-    linkedin: "https://www.linkedin.com/in/delaunoy-cl%C3%A9ment-10a433220/",
+    linkedin: "https://www.linkedin.com/in/delaunoy-clément-10a433220/",
     gitlab: "https://gitlab.com/ClemD05",
     linkhub: "https://kuramentooo.github.io/LinkHub/"
-  }
+  },
+  projects: [
+    {
+      name: "Script Route Table",
+      description: "Script d'automatisation pour tables de routage",
+      url: "https://github.com/kuramentooo/script-routetable",
+      tech: ["Scripting", "Networking"]
+    },
+    {
+      name: "LinkHub",
+      description: "Hub centralisé de liens personnels",
+      url: "https://github.com/kuramentooo/LinkHub",
+      demoUrl: "https://kuramentooo.github.io/LinkHub/",
+      tech: ["Web", "GitHub Pages"]
+    },
+    {
+      name: "Portfolio",
+      description: "Portfolio personnel",
+      url: "https://github.com/kuramentooo/kuramentooo",
+      tech: ["Web", "GitHub Pages"]
+    },
+  ]
 }
 
 export default profile

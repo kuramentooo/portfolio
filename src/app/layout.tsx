@@ -1,10 +1,11 @@
-'use client'
-
 import './globals.css'
-import { metadata } from './metadata'
+import type { Metadata } from 'next'
 import ClientLayout from '@/components/ClientLayout'
 
-export { metadata }
+export const metadata: Metadata = {
+  title: 'Clément Delaunoy - Portfolio',
+  description: 'Portfolio professionnel de Clément Delaunoy - Développeur Full Stack',
+}
 
 export default function RootLayout({
   children,

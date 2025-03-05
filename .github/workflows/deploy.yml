@@ -3,17 +3,16 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
   workflow_dispatch:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.head.repo.full_name == github.repository || github.event_name == 'push'
     
     steps:
     - uses: actions/checkout@v3
@@ -23,28 +22,15 @@ jobs:
       with:
         node-version: '18'
         
-    - name: Clean install dependencies
-      run: |
-        rm -rf node_modules
-        rm -f package-lock.json
-        npm install
-        
-    - name: Setup project
-      run: |
-        touch .env
-        echo "NEXT_PUBLIC_BASE_PATH=/portfolio" >> .env
+    - name: Install dependencies
+      run: npm install
         
     - name: Build
       run: npm run build
         
-    - name: Copy CNAME
-      run: cp public/CNAME out/
-        
     - name: Deploy
-      if: github.event_name == 'push'
       uses: JamesIves/github-pages-deploy-action@v4
       with:
         folder: out
         branch: gh-pages
         clean: true
-        commit-message: "Deploy to GitHub Pages"

@@ -14,12 +14,13 @@ export default function Hero() {
         <div className="mb-8">
           <div className="w-40 h-40 mx-auto mb-8 rounded-full overflow-hidden ring-4 ring-blue-500 shadow-xl transform hover:scale-105 transition-all duration-300">
             <Image
-              src="/me_avatar.jpg"
+              src="/me_avatar.png" // Chemin corrigé pour l'image
               alt="Clément Delaunoy"
               width={160}
               height={160}
               className="w-full h-full object-cover"
               priority
+              unoptimized
             />
           </div>
           <h1 className="text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">

@@ -20,10 +20,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-          cache: 'npm'
-          
+      
+      - name: Generate package-lock.json
+        run: npm i --package-lock-only
+      
       - name: Install dependencies
-        run: npm install
+        run: |
+          npm ci || npm install
+          npm ls
         
       - name: Build project
         run: npm run build
@@ -45,10 +49,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-          cache: 'npm'
-          
+      
       - name: Install dependencies
-        run: npm install
+        run: |
+          npm i --package-lock-only
+          npm ci || npm install
         
       - name: Run linting
         run: npm run lint

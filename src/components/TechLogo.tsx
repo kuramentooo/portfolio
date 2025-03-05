@@ -30,11 +30,11 @@ export default function TechLogo({ name, logo, size = 40 }: TechLogoProps) {
       <Image
         src={`/logos/${logo}`}
         alt={`${name} logo`}
-        width={size}
-        height={size}
-        className="object-contain"
+        fill
+        className="object-contain p-1"
         onError={() => setError(true)}
         priority
+        unoptimized
       />
     </div>
   )

@@ -53,16 +53,16 @@ export default function About() {
               {profile.languages.map((lang, index) => (
                 <div key={index} className="flex justify-between items-center">
                   <span>{lang.name}</span>
-                  <span className="text-gray-600 dark:text-gray-400">{lang.level}</span>
+                  <span className="text-gray-600 dark:text-gray-400">{lang.level.replace("'", "&apos;")}</span>
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        {/* Centres d'intérêt */}
+        {/* Centres d&apos;intérêt */}
         <div>
-          <h3 className="text-2xl font-semibold mb-6">Centres d'intérêt</h3>
+          <h3 className="text-2xl font-semibold mb-6">Centres d&apos;intérêt</h3>
           <div className="flex flex-wrap gap-3">
             {profile.interests.map((interest, index) => (
               <span key={index} className="px-4 py-2 bg-blue-100 dark:bg-blue-900 rounded-lg">

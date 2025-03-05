@@ -95,8 +95,9 @@ export const profile = {
       name: "Portfolio",
       description: "Portfolio personnel",
       url: "https://github.com/kuramentooo/kuramentooo",
-      tech: ["Web", "GitHub Pages"]
-    },
+      demoUrl: "https://kuramentooo.github.io/portfolio/",
+      tech: ["Next.js", "TypeScript", "Tailwind CSS"]
+    }
   ]
 }
 

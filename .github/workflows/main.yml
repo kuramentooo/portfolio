@@ -20,10 +20,20 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
-          
+      
+      - name: Generate package-lock.json
+        run: npm install --package-lock-only
+      
+      - name: Setup dependency caching
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      
       - name: Install dependencies
-        run: npm ci || npm install
+        run: npm ci
         
       - name: Build project
         run: npm run build

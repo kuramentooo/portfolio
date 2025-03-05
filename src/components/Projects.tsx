@@ -7,7 +7,10 @@ export default function Projects() {
         <h2 className="text-3xl font-bold mb-12 text-center">Projets</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {profile.projects.map((project, index) => (
-            <div key={index} className="bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden">
+            <div 
+              key={index} 
+              className="bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-blue-50 dark:hover:bg-gray-600"
+            >
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">{project.name}</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>

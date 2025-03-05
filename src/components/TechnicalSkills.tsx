@@ -14,10 +14,10 @@ export default function TechnicalSkills() {
 
   const renderTechItem = (item: { name: string; logo: string; level: string }) => (
     <div className="flex items-center space-x-4">
-      <div className="w-16 h-16 relative flex items-center justify-center bg-gray-100 dark:bg-gray-700 rounded-lg">
+      <div className="w-16 h-16 relative flex items-center justify-center bg-white rounded-lg p-2">
         {!imageError[item.name] ? (
           <Image
-            src={`/portfolio/logos/${item.logo}`}
+            src={`/logos/${item.logo}`} // Chemin mis à jour
             alt={item.name}
             width={40}
             height={40}

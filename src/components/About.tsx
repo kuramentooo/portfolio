@@ -41,7 +41,7 @@ export default function About() {
             {profile.experiences.map((exp, index) => (
               <div 
                 key={index} 
-                className="p-6 border rounded-lg hover:shadow-xl transition-all duration-300 cursor-pointer bg-white dark:bg-gray-800"
+                className="p-6 border rounded-lg transform transition-all duration-300 hover:scale-102 hover:shadow-xl hover:bg-blue-50 dark:hover:bg-gray-700 cursor-pointer bg-white dark:bg-gray-800"
                 onClick={() => setExpandedExp(expandedExp === index ? null : index)}
               >
                 <div className="flex justify-between items-center">
@@ -102,9 +102,11 @@ export default function About() {
               {profile.education.map((edu, index) => (
                 <div key={index} className="relative">
                   <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-blue-500 rounded-full"></div>
-                  <div className={`p-6 rounded-lg bg-white dark:bg-gray-800 shadow-lg ${
-                    index % 2 === 0 ? 'ml-8' : 'mr-8'
-                  }`}>
+                  <div 
+                    className={`p-6 rounded-lg bg-white dark:bg-gray-800 shadow-lg transform transition-all duration-300 hover:scale-102 hover:shadow-xl hover:bg-blue-50 dark:hover:bg-gray-700 ${
+                      index % 2 === 0 ? 'ml-8' : 'mr-8'
+                    }`}
+                  >
                     <h4 className="font-bold text-lg">
                       {edu.degree}
                       {edu.website && (

@@ -3,11 +3,34 @@
 import { useState } from 'react'
 import { profile } from '@/data/profile'
 
+const LanguageLevel = ({ level }: { level: string }) => {
+  const getLevel = (level: string) => {
+    if (level.includes('B1')) return 60;
+    if (level.includes('B2')) return 75;
+    if (level.includes('C1')) return 90;
+    return 45;
+  }
+
+  const percentage = getLevel(level)
+
+  return (
+    <div className="w-full">
+      <div className="h-2 w-full bg-gray-200 dark:bg-gray-700 rounded-full">
+        <div 
+          className="h-full bg-blue-500 rounded-full transition-all duration-500"
+          style={{ width: `${percentage}%` }}
+        />
+      </div>
+      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{level}</p>
+    </div>
+  )
+}
+
 export default function About() {
   const [expandedExp, setExpandedExp] = useState<number | null>(null);
 
   return (
-    <section id="about" className="py-20 scroll-mt-16">
+    <section id="about" className="py-20 scroll-mt-16 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
       <div className="max-w-4xl mx-auto px-4">
         <h2 className="text-3xl font-bold mb-12 text-center">À propos</h2>
         
@@ -111,37 +134,45 @@ export default function About() {
         </div>
 
         {/* Compétences et Langues */}
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
-          <div>
-            <h3 className="text-2xl font-semibold mb-6">Compétences</h3>
+        <div className="grid md:grid-cols-2 gap-12 mb-12">
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg"></div>
+            <h3 className="text-2xl font-semibold mb-6 text-center">Compétences</h3>
             <div className="flex flex-wrap gap-2">
               {profile.skills.map((skill, index) => (
-                <span key={index} className="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full">
+                <span 
+                  key={index} 
+                  className="px-4 py-2 bg-blue-100 dark:bg-blue-900 rounded-lg text-blue-800 dark:text-blue-200 hover:scale-105 transition-transform"
+                >
                   {skill}
                 </span>
               ))}
             </div>
           </div>
           
-          <div>
-            <h3 className="text-2xl font-semibold mb-6">Langues</h3>
-            <div className="space-y-2">
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+            <h3 className="text-2xl font-semibold mb-6 text-center">Langues</h3>
+            <div className="space-y-6">
               {profile.languages.map((lang, index) => (
-                <div key={index} className="flex justify-between items-center">
-                  <span>{lang.name}</span>
-                  <span className="text-gray-600 dark:text-gray-400">{lang.level.replace("'", "&apos;")}</span>
+                <div key={index} className="space-y-2">
+                  <div className="flex justify-between items-center">
+                    <span className="font-medium text-lg">{lang.name}</span>
+                  </div>
+                  <LanguageLevel level={lang.level} />
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        {/* Centres d&apos;intérêt */}
-        <div>
-          <h3 className="text-2xl font-semibold mb-6">Centres d&apos;intérêt</h3>
-          <div className="flex flex-wrap gap-3">
+        {/* Centres d'intérêt */}
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg"></div>
+          <h3 className="text-2xl font-semibold mb-6 text-center">Centres d&apos;intérêt</h3>
+          <div className="flex flex-wrap justify-center gap-4">
             {profile.interests.map((interest, index) => (
-              <span key={index} className="px-4 py-2 bg-blue-100 dark:bg-blue-900 rounded-lg">
+              <span 
+                key={index} 
+                className="px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg hover:scale-105 transition-transform shadow-md"
+              >
                 {interest}
               </span>
             ))}

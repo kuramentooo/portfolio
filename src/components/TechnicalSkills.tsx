@@ -2,8 +2,40 @@
 
 import Image from 'next/image'
 import { profile } from '@/data/profile'
+import { useState } from 'react'
 
 export default function TechnicalSkills() {
+  const [imageError, setImageError] = useState<{[key: string]: boolean}>({})
+
+  const handleImageError = (name: string) => {
+    setImageError(prev => ({...prev, [name]: true}))
+    console.error(`Failed to load image for ${name}`)
+  }
+
+  const renderTechItem = (item: { name: string; logo: string; level: string }) => (
+    <div className="flex items-center space-x-4">
+      <div className="w-16 h-16 relative flex items-center justify-center bg-gray-100 dark:bg-gray-700 rounded-lg">
+        {!imageError[item.name] ? (
+          <Image
+            src={`/portfolio/logos/${item.logo}`}
+            alt={item.name}
+            width={40}
+            height={40}
+            className="object-contain"
+            onError={() => handleImageError(item.name)}
+            priority
+          />
+        ) : (
+          <span className="text-2xl">{item.name[0]}</span>
+        )}
+      </div>
+      <div>
+        <h4 className="font-medium">{item.name}</h4>
+        <p className="text-sm text-gray-600 dark:text-gray-400">{item.level}</p>
+      </div>
+    </div>
+  )
+
   return (
     <section id="skills" className="py-20 scroll-mt-16">
       <div className="max-w-4xl mx-auto px-4">
@@ -18,21 +50,7 @@ export default function TechnicalSkills() {
                 key={index}
                 className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
               >
-                <div className="flex items-center space-x-4">
-                  <div className="w-16 h-16 relative flex items-center justify-center">
-                    <Image
-                      src={`/portfolio/${skill.logo}`}
-                      alt={skill.name}
-                      width={48}
-                      height={48}
-                      className="object-contain max-w-full max-h-full"
-                    />
-                  </div>
-                  <div>
-                    <h4 className="font-medium">{skill.name}</h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">{skill.level}</p>
-                  </div>
-                </div>
+                {renderTechItem(skill)}
               </div>
             ))}
           </div>
@@ -47,21 +65,7 @@ export default function TechnicalSkills() {
                 key={index}
                 className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
               >
-                <div className="flex items-center space-x-4">
-                  <div className="w-16 h-16 relative flex items-center justify-center">
-                    <Image
-                      src={`/portfolio/${tool.logo}`}
-                      alt={tool.name}
-                      width={48}
-                      height={48}
-                      className="object-contain max-w-full max-h-full"
-                    />
-                  </div>
-                  <div>
-                    <h4 className="font-medium">{tool.name}</h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">{tool.level}</p>
-                  </div>
-                </div>
+                {renderTechItem(tool)}
               </div>
             ))}
           </div>
@@ -76,21 +80,7 @@ export default function TechnicalSkills() {
                 key={index}
                 className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
               >
-                <div className="flex items-center space-x-4">
-                  <div className="w-16 h-16 relative flex items-center justify-center">
-                    <Image
-                      src={`/portfolio/${platform.logo}`}
-                      alt={platform.name}
-                      width={48}
-                      height={48}
-                      className="object-contain max-w-full max-h-full"
-                    />
-                  </div>
-                  <div>
-                    <h4 className="font-medium">{platform.name}</h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">{platform.level}</p>
-                  </div>
-                </div>
+                {renderTechItem(platform)}
               </div>
             ))}
           </div>

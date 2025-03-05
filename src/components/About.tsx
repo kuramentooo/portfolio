@@ -27,9 +27,23 @@ export default function About() {
                 </div>
                 <p className="font-medium mt-2">{exp.role}</p>
                 {expandedExp === index && (
-                  <p className="mt-4 text-gray-600 dark:text-gray-400 animate-fadeIn">
-                    {exp.details}
-                  </p>
+                  <div className="mt-4 space-y-4">
+                    <p className="text-gray-600 dark:text-gray-400 whitespace-pre-line">
+                      {exp.details}
+                    </p>
+                    {exp.technologies && (
+                      <div className="flex flex-wrap gap-2">
+                        {exp.technologies.map((tech, i) => (
+                          <span 
+                            key={i} 
+                            className="px-2 py-1 text-sm bg-blue-100 dark:bg-blue-900 rounded-full"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 )}
               </div>
             ))}

@@ -7,7 +7,17 @@ export const profile = {
       company: "Luminess",
       period: "01/09/2024 - 31/09/2026",
       role: "Alternance Master DevOps",
-      details: "En cours - Formation aux pratiques DevOps, automatisation et gestion d'infrastructure cloud."
+      details: `
+        • Automatisation des processus de build et du déploiement (cloud Outscale & on-premise Nutanix)
+        • Configuration et maintenance pipelines CICD (Jenkins / GitLab / Nexus)
+        • Création de contenu Terraform (code et modules)
+        • Création de code d'infrastructure avec Puppet (code et modules)
+        • Création de scripts d'exploitation pour le déploiement et le MCO/MCS
+        • Mise en place de pratiques de déploiement basées sur la conteneurisation
+        • Documentation des procédures d'exploitation
+        • MCO et MCS de la fondation sur le Cloud Outscale
+      `,
+      technologies: ["Jenkins", "GitLab", "Nexus", "Terraform", "Puppet", "Cloud Outscale", "Nutanix", "Docker"]
     },
     {
       company: "Paritel Opérateur",
@@ -102,6 +112,12 @@ export const profile = {
       url: "https://github.com/kuramentooo/kuramentooo",
       demoUrl: "https://kuramentooo.github.io/portfolio/",
       tech: ["Next.js", "TypeScript", "Tailwind CSS"]
+    },
+    {
+      name: "GitHub Profile",
+      description: "Page de profil GitHub personnalisée",
+      url: "https://github.com/kuramentooo/kuramentooo",
+      tech: ["Markdown", "GitHub Special Repository"]
     }
   ]
 }

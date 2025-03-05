@@ -22,7 +22,27 @@ export default function About() {
                 onClick={() => setExpandedExp(expandedExp === index ? null : index)}
               >
                 <div className="flex justify-between items-center">
-                  <h4 className="font-bold text-lg text-blue-600 dark:text-blue-400">{exp.company}</h4>
+                  <div>
+                    <h4 className="font-bold text-lg text-blue-600 dark:text-blue-400">
+                      {exp.company}
+                      {exp.website && (
+                        <a 
+                          href={exp.website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="ml-2 text-sm text-gray-500 hover:text-blue-500"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          🔗
+                        </a>
+                      )}
+                    </h4>
+                    {exp.location && (
+                      <p className="text-sm text-gray-500">
+                        {exp.location.address}, {exp.location.postalCode} {exp.location.city}
+                      </p>
+                    )}
+                  </div>
                   <span className="text-sm text-gray-600 dark:text-gray-400">{exp.period}</span>
                 </div>
                 <p className="font-medium mt-2">{exp.role}</p>
@@ -62,8 +82,25 @@ export default function About() {
                   <div className={`p-6 rounded-lg bg-white dark:bg-gray-800 shadow-lg ${
                     index % 2 === 0 ? 'ml-8' : 'mr-8'
                   }`}>
-                    <h4 className="font-bold text-lg">{edu.degree}</h4>
+                    <h4 className="font-bold text-lg">
+                      {edu.degree}
+                      {edu.website && (
+                        <a 
+                          href={edu.website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="ml-2 text-sm text-gray-500 hover:text-blue-500"
+                        >
+                          🔗
+                        </a>
+                      )}
+                    </h4>
                     <p className="text-blue-600 dark:text-blue-400">{edu.school}</p>
+                    {edu.location && (
+                      <p className="text-sm text-gray-500">
+                        {edu.location.address}, {edu.location.postalCode} {edu.location.city}
+                      </p>
+                    )}
                     <p className="text-gray-600 dark:text-gray-400">{edu.period}</p>
                     <p className="mt-2">{edu.details}</p>
                   </div>

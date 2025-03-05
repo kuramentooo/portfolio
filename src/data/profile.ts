@@ -7,6 +7,12 @@ export const profile = {
       company: "Luminess",
       period: "01/09/2024 - 31/09/2026",
       role: "Alternance Master DevOps",
+      location: {
+        address: "12 Rue des Landelles",
+        city: "Cesson-Sévigné",
+        postalCode: "35510"
+      },
+      website: "https://www.luminess.eu",
       details: `
         • Automatisation des processus de build et du déploiement (cloud Outscale & on-premise Nutanix)
         • Configuration et maintenance pipelines CICD (Jenkins / GitLab / Nexus)
@@ -23,6 +29,12 @@ export const profile = {
       company: "Paritel Opérateur",
       period: "01/09/2022 - 31/08/2024",
       role: "Alternance Bachelor Systèmes et Réseaux",
+      location: {
+        address: "Espace Performance – Bâtiment J RDC Centre d'Affaires, Ctre Performance Alphasis",
+        city: "Saint-Grégoire",
+        postalCode: "35760"
+      },
+      website: "https://www.paritel.fr",
       details: `
         Téléphonie et VoIP :
         • Mise en place des systèmes de téléphonie fixe et mobile
@@ -62,6 +74,12 @@ export const profile = {
       company: "Acim Jouinin",
       period: "Juillet 2022",
       role: "Stage BTS SIO",
+      location: {
+        address: "650 Rue Vulcain",
+        city: "Évreux",
+        postalCode: "27000"
+      },
+      website: "https://www.acim-jouanin.fr",
       details: `
         Administration Système :
         • Création et gestion de machines virtuelles
@@ -74,6 +92,12 @@ export const profile = {
       company: "Chronodrive",
       period: "Novembre 2021 - Août 2022",
       role: "Job étudiant",
+      location: {
+        address: "1 Rue des Mesliers",
+        city: "Cesson-Sévigné",
+        postalCode: "35510"
+      },
+      website: "https://www.chronodrive.com",
       details: `
         Préparation des Commandes :
         • Réception et traitement des commandes via le système interne
@@ -105,6 +129,12 @@ export const profile = {
       company: "Bricomarché",
       period: "Été 2021",
       role: "Conseiller de vente",
+      location: {
+        address: "N12",
+        city: "Verneuil d'Avre et d'Iton",
+        postalCode: "27130"
+      },
+      website: "https://www.bricomarche.com",
       details: `
         Service Client :
         • Accueil et orientation des clients en magasin
@@ -129,24 +159,49 @@ export const profile = {
       degree: "Master DevOps",
       period: "2024-2026",
       school: "Sup de Vinci",
-      details: "Formation en alternance aux pratiques DevOps modernes"
+      details: "Formation en alternance aux pratiques DevOps modernes",
+      location: {
+        address: "21 Rue du Bignon",
+        city: "Chantepie",
+        postalCode: "35135"
+      },
+      website: "https://www.supdevinci.fr"
     },
     {
       degree: "Bachelor Systèmes et Réseaux",
       period: "2023-2024",
       school: "Sup de Vinci",
-      details: "Spécialisation en administration système et réseau"
+      details: "Spécialisation en administration système et réseau",
+      location: {
+        address: "21 Rue du Bignon",
+        city: "Chantepie",
+        postalCode: "35135"
+      },
+      website: "https://www.supdevinci.fr"
     },
     {
       degree: "BTS SIO SISR",
       period: "2021-2023",
       school: "AFTEC",
-      details: "Formation en alternance aux services informatiques aux organisations"
+      details: "Formation en alternance aux services informatiques aux organisations",
+      location: {
+        address: "23 Rue Louis Kerautret Botmel",
+        city: "Rennes",
+        postalCode: "35000"
+      },
+      website: "https://www.aftec.fr/ecole-commerce-rennes"
     },
     {
       degree: "BAC Général Scientifique",
       period: "2018-2021",
-      school: "Lycée Porte de Normandie, Edouard de Chambray - Damville"
+      school: "Lycée Porte de Normandie, Edouard de Chambray",
+      details: "Formation générale avec spécialisation scientifique",
+      location: {
+        address: "Rue de Chambray",
+        city: "Mesnils-sur-Iton",
+        postalCode: "27240"
+      },
+      website: "https://educagri27.fr/index.php/lycee-edouard-de-chambray"
     }
   ],
   skills: [

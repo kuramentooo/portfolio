@@ -1,10 +1,16 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { ReactNode } from 'react'
 
-export default function AnimatedSection({ children, className = '' }) {
+interface AnimatedSectionProps {
+  children: ReactNode;
+  className?: string;
+}
+
+export default function AnimatedSection({ children, className = '' }: AnimatedSectionProps) {
   const [isVisible, setIsVisible] = useState(false)
-  const ref = useRef(null)
+  const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(

@@ -214,25 +214,22 @@ export const profile = {
   ],
   technicalSkills: {
     languages: [
-      { name: "Python", logo: "python.svg", level: "Avancé" },
-      { name: "JavaScript", logo: "javascript.svg", level: "Avancé" },
-      { name: "HTML/CSS", logo: "html5.svg", level: "Avancé" },
-      { name: "Java", logo: "java.svg", level: "Intermédiaire" },
-      { name: "TypeScript", logo: "typescript.svg", level: "Intermédiaire" }
+      { name: "Python", logo: "python-logo.svg", level: "Avancé" },
+      { name: "JavaScript", logo: "javascript-logo.svg", level: "Avancé" },
+      { name: "HTML/CSS", logo: "html-css-logo.svg", level: "Avancé" }
     ],
     devops: [
-      { name: "Terraform", logo: "terraform.svg", level: "Avancé" },
-      { name: "Ansible", logo: "ansible.svg", level: "Intermédiaire" },
-      { name: "Puppet", logo: "puppet.svg", level: "Intermédiaire" },
-      { name: "Jenkins", logo: "jenkins.svg", level: "Avancé" },
-      { name: "Docker", logo: "docker.svg", level: "Avancé" },
-      { name: "Git", logo: "git.svg", level: "Avancé" },
-      { name: "Rundeck", logo: "rundeck.svg", level: "Intermédiaire" }
+      { name: "Terraform", logo: "terraform-logo.svg", level: "Avancé" },
+      { name: "Ansible", logo: "ansible-logo.svg", level: "Intermédiaire" },
+      { name: "Puppet", logo: "puppet-logo.svg", level: "Intermédiaire" },
+      { name: "Jenkins", logo: "jenkins-logo.svg", level: "Avancé" },
+      { name: "Docker", logo: "docker-logo.svg", level: "Avancé" },
+      { name: "Git", logo: "git-logo.svg", level: "Avancé" },
+      { name: "Rundeck", logo: "rundeck-logo.svg", level: "Intermédiaire" }
     ],
     cloud: [
-      { name: "AWS", logo: "aws.svg", level: "Intermédiaire" },
-      { name: "Azure", logo: "azure.svg", level: "Intermédiaire" },
-      { name: "GCP", logo: "gcp.svg", level: "Débutant" }
+      { name: "AWS", logo: "aws-logo.svg", level: "Intermédiaire" },
+      { name: "Azure", logo: "azure-logo.svg", level: "Intermédiaire" }
     ]
   },
   languages: [

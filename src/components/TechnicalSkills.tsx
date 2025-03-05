@@ -12,19 +12,20 @@ export default function TechnicalSkills() {
         {/* Languages de programmation */}
         <div className="mb-12">
           <h3 className="text-2xl font-semibold mb-6">Langages de Programmation</h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
             {profile.technicalSkills.languages.map((skill, index) => (
               <div 
                 key={index}
-                className="p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+                className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
               >
                 <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 relative">
+                  <div className="w-16 h-16 relative flex items-center justify-center">
                     <Image
-                      src={`/portfolio/icons/${skill.logo}`}
+                      src={`/portfolio/${skill.logo}`}
                       alt={skill.name}
-                      fill
-                      className="object-contain"
+                      width={48}
+                      height={48}
+                      className="object-contain max-w-full max-h-full"
                     />
                   </div>
                   <div>
@@ -44,15 +45,16 @@ export default function TechnicalSkills() {
             {profile.technicalSkills.devops.map((tool, index) => (
               <div 
                 key={index}
-                className="p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+                className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
               >
                 <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 relative">
+                  <div className="w-16 h-16 relative flex items-center justify-center">
                     <Image
-                      src={`/portfolio/icons/${tool.logo}`}
+                      src={`/portfolio/${tool.logo}`}
                       alt={tool.name}
-                      fill
-                      className="object-contain"
+                      width={48}
+                      height={48}
+                      className="object-contain max-w-full max-h-full"
                     />
                   </div>
                   <div>
@@ -68,19 +70,20 @@ export default function TechnicalSkills() {
         {/* Cloud Platforms */}
         <div>
           <h3 className="text-2xl font-semibold mb-6">Cloud</h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 gap-6">
             {profile.technicalSkills.cloud.map((platform, index) => (
               <div 
                 key={index}
-                className="p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+                className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
               >
                 <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 relative">
+                  <div className="w-16 h-16 relative flex items-center justify-center">
                     <Image
-                      src={`/portfolio/icons/${platform.logo}`}
+                      src={`/portfolio/${platform.logo}`}
                       alt={platform.name}
-                      fill
-                      className="object-contain"
+                      width={48}
+                      height={48}
+                      className="object-contain max-w-full max-h-full"
                     />
                   </div>
                   <div>

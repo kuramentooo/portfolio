@@ -48,7 +48,7 @@ export default function TechnicalSkills() {
             {profile.technicalSkills.languages.map((skill, index) => (
               <div 
                 key={index}
-                className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+                className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-blue-50 dark:hover:bg-gray-700"
               >
                 {renderTechItem(skill)}
               </div>
@@ -63,7 +63,7 @@ export default function TechnicalSkills() {
             {profile.technicalSkills.devops.map((tool, index) => (
               <div 
                 key={index}
-                className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+                className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-blue-50 dark:hover:bg-gray-700"
               >
                 {renderTechItem(tool)}
               </div>
@@ -78,7 +78,7 @@ export default function TechnicalSkills() {
             {profile.technicalSkills.cloud.map((platform, index) => (
               <div 
                 key={index}
-                className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+                className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-blue-50 dark:hover:bg-gray-700"
               >
                 {renderTechItem(platform)}
               </div>

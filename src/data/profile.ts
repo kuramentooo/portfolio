@@ -251,11 +251,11 @@ export const profile = {
   },
   projects: [
     {
-      name: "Mini-Jeux Web",
-      description: "Collection de mini-jeux interactifs développés en JavaScript",
-      url: "https://github.com/kuramentooo/jeux",
-      demoUrl: "https://kuramentooo.github.io/jeux/",
-      tech: ["JavaScript", "HTML5", "CSS3", "Web Games"]
+      name: "Game Platform",
+      description: "Plateforme de mini-jeux interactive développée avec JavaScript",
+      url: "https://github.com/kuramentooo/Game",
+      demoUrl: "https://kuramentooo.github.io/Game/index.html#about",
+      tech: ["JavaScript", "HTML5", "CSS3", "Game Development"]
     },
     {
       name: "Script Route Table",

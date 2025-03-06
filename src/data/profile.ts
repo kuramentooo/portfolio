@@ -254,7 +254,7 @@ export const profile = {
       name: "Game Platform",
       description: "Plateforme de mini-jeux interactive développée avec JavaScript",
       url: "https://github.com/kuramentooo/Game",
-      demoUrl: "https://kuramentooo.github.io/Game/index.html#about",
+      demoUrl: "https://kuramentooo.github.io/Game/",
       tech: ["JavaScript", "HTML5", "CSS3", "Game Development"]
     },
     {

@@ -12,7 +12,8 @@ interface GithubRepo {
   topics: string[]
   stargazers_count: number
   updated_at: string
-  fork: boolean  // Added missing property
+  fork: boolean
+  language: string  // Ajout de la propriété language
 }
 
 export default function Projects() {
@@ -25,8 +26,19 @@ export default function Projects() {
         const response = await fetch('https://api.github.com/users/kuramentooo/repos')
         const data = await response.json()
         
-        // Filter out forks and format data
-        const repos = data
+        // Récupérer les langages pour chaque repo
+        const reposWithLanguages = await Promise.all(
+          data.map(async (repo: GithubRepo) => {
+            const langResponse = await fetch(repo.languages_url)
+            const languages = await langResponse.json()
+            return {
+              ...repo,
+              languages: Object.keys(languages)
+            }
+          })
+        )
+        
+        const repos = reposWithLanguages
           .filter((repo: GithubRepo) => !repo.fork)
           .sort((a: GithubRepo, b: GithubRepo) => 
             new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()
@@ -48,10 +60,10 @@ export default function Projects() {
     ...profile.projects,
     ...githubProjects.map(repo => ({
       name: repo.name,
-      description: repo.description || 'Pas de description disponible',
+      description: repo.description || 'Projet personnel',
       url: repo.html_url,
       demoUrl: repo.homepage,
-      tech: repo.topics,
+      tech: [...(repo.topics || []), ...(repo.languages || []), repo.language].filter(Boolean)
     }))
   ]
 
@@ -72,13 +84,16 @@ export default function Projects() {
                   <h3 className="text-xl font-bold mb-3 group-hover:text-blue-600 transition-colors">
                     {project.name}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  <p className="text-gray-600 dark:text-gray-300 mb-4 h-20 overflow-y-auto">
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tech.map((tech, i) => (
-                      <span key={i} className="px-3 py-1 text-sm bg-blue-100 dark:bg-blue-900 rounded-full">
-                        {tech}
+                      <span 
+                        key={i} 
+                        className="px-3 py-1 text-sm bg-blue-100 dark:bg-blue-900 rounded-full capitalize"
+                      >
+                        {tech.toLowerCase()}
                       </span>
                     ))}
                   </div>

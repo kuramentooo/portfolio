@@ -67,38 +67,15 @@ export default function Projects() {
     fetchGithubProjects()
   }, [])
 
-  // Combine manual and GitHub projects
+  // Combine manual and GitHub projects with proper filtering
   const allProjects = [
-    Run npm run build
-
-    > clement-delaunoy-portfolio@0.1.0 build
-    > next build
-    
-    ⚠ No build cache found. Please configure build caching for faster rebuilds. Read more: https://nextjs.org/docs/messages/no-cache
-    Attention: Next.js now collects completely anonymous telemetry regarding usage.
-    This information is used to shape Next.js' roadmap and prioritize features.
-    You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
-    https://nextjs.org/telemetry
-    
-      ▲ Next.js 14.2.24
-    
-       Creating an optimized production build ...
-     ✓ Compiled successfully
-       Linting and checking validity of types ...
-    
-    Failed to compile.
-    
-    ./src/components/Projects.tsx
-    81:53  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
-    
-    info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
-    Error: Process completed with exit code 1.    // Garder seulement les projets manuels qui ne sont pas sur GitHub
+    // Les projets manuels qui ne sont pas sur GitHub
     ...profile.projects.filter(manualProject => 
       !githubProjects.some(githubProject => 
         githubProject.html_url === manualProject.url
       )
     ),
-    // Ajouter les projets GitHub
+    // Les projets GitHub
     ...githubProjects.map(repo => {
       const technologies = [
         ...(repo.topics || []),

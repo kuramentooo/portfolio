@@ -75,18 +75,10 @@ export default function Projects() {
         ...(repo.topics || []),
         ...(repo.languages || []),
         repo.language
-      ].filter(Boolean);
+      ].filter((tech): tech is string => Boolean(tech));
       
-      // Remove duplicates using Array.from instead of Set
-      const uniqueTech = Array.from(new Object() as any, function* () {
-        const seen = new Set();
-        for (const tech of technologies) {
-          if (!seen.has(tech)) {
-            seen.add(tech);
-            yield tech;
-          }
-        }
-      }());
+      // Remove duplicates using Set and Array.from with proper typing
+      const uniqueTech = Array.from(new Set(technologies));
 
       return {
         name: repo.name,

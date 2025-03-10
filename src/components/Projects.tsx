@@ -13,7 +13,8 @@ interface GithubRepo {
   stargazers_count: number
   updated_at: string
   fork: boolean
-  language: string  // Ajout de la propriété language
+  language: string
+  languages_url: string  // Added missing property
 }
 
 export default function Projects() {

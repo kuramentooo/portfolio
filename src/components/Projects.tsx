@@ -14,11 +14,15 @@ interface GithubRepo {
   updated_at: string
   fork: boolean
   language: string
-  languages_url: string  // Added missing property
+  languages_url: string
+}
+
+interface RepoWithLanguages extends GithubRepo {
+  languages?: string[]
 }
 
 export default function Projects() {
-  const [githubProjects, setGithubProjects] = useState<GithubRepo[]>([])
+  const [githubProjects, setGithubProjects] = useState<RepoWithLanguages[]>([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -30,18 +34,25 @@ export default function Projects() {
         // Récupérer les langages pour chaque repo
         const reposWithLanguages = await Promise.all(
           data.map(async (repo: GithubRepo) => {
-            const langResponse = await fetch(repo.languages_url)
-            const languages = await langResponse.json()
-            return {
-              ...repo,
-              languages: Object.keys(languages)
+            try {
+              const langResponse = await fetch(repo.languages_url)
+              const languages = await langResponse.json()
+              return {
+                ...repo,
+                languages: Object.keys(languages)
+              }
+            } catch (error) {
+              return {
+                ...repo,
+                languages: []
+              }
             }
           })
         )
         
         const repos = reposWithLanguages
-          .filter((repo: GithubRepo) => !repo.fork)
-          .sort((a: GithubRepo, b: GithubRepo) => 
+          .filter((repo: RepoWithLanguages) => !repo.fork)
+          .sort((a: RepoWithLanguages, b: RepoWithLanguages) => 
             new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()
           )
         
@@ -64,7 +75,7 @@ export default function Projects() {
       description: repo.description || 'Projet personnel',
       url: repo.html_url,
       demoUrl: repo.homepage,
-      tech: [...(repo.topics || []), ...(repo.languages || []), repo.language].filter(Boolean)
+      tech: [...new Set([...(repo.topics || []), ...(repo.languages || []), repo.language].filter(Boolean))]
     }))
   ]
 

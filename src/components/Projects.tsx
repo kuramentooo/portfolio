@@ -12,6 +12,7 @@ interface GithubRepo {
   topics: string[]
   stargazers_count: number
   updated_at: string
+  fork: boolean  // Added missing property
 }
 
 export default function Projects() {

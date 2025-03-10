@@ -70,14 +70,33 @@ export default function Projects() {
   // Combine manual and GitHub projects
   const allProjects = [
     ...profile.projects,
-    ...githubProjects.map(repo => ({
-      name: repo.name,
-      description: repo.description || 'Projet personnel',
-      url: repo.html_url,
-      demoUrl: repo.homepage,
-      tech: [...new Set([...(repo.topics || []), ...(repo.languages || []), repo.language].filter(Boolean))]
-    }))
-  ]
+    ...githubProjects.map(repo => {
+      const technologies = [
+        ...(repo.topics || []),
+        ...(repo.languages || []),
+        repo.language
+      ].filter(Boolean);
+      
+      // Remove duplicates using Array.from instead of Set
+      const uniqueTech = Array.from(new Object() as any, function* () {
+        const seen = new Set();
+        for (const tech of technologies) {
+          if (!seen.has(tech)) {
+            seen.add(tech);
+            yield tech;
+          }
+        }
+      }());
+
+      return {
+        name: repo.name,
+        description: repo.description || 'Projet personnel',
+        url: repo.html_url,
+        demoUrl: repo.homepage,
+        tech: uniqueTech
+      };
+    })
+  ];
 
   return (
     <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-800">
